@@ -1,21 +1,17 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
-
-  constructor(
-    private http:HttpClient
-  ) { 
-  }
+  constructor(private http: HttpClient) {}
 
   createTask(task) {
-    return this.http.post('http://localhost:4000/task', JSON.stringify(task))
+    return this.http.post('http://localhost:4000/task', task);
   }
 
-  getTasks(){
-    return this.http.get('http://localhost:4000/task')
+  getTasks() {
+    return this.http.get('http://localhost:4000/task');
   }
 }
